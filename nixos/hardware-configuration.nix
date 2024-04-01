@@ -38,4 +38,9 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Move to separate default file?
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  powerManagement.powertop.enable = true;
+
 }
