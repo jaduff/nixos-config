@@ -9,25 +9,22 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "dm-cache" "dm-cache-smq" "dm-cache-mq" "dm-cache-cleaner" ];
+  boot.kernelModules = [ "kvm-intel" "dm-cache" "dm-cache-smq" "dm-persistent-data" "dm-bio-prison" "dm-clone" "dm-crypt" "dm-writecache" "dm-mirror" "dm-snapshot" ];
   boot.extraModulePackages = [ ];
+  boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/9fe06630-041e-4cf2-8676-a8e16d6d50de";
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/11164c09-a2bc-4fe9-84d2-e6243f458c32";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/b9d2a1fc-3e70-4f1e-b57b-d5dc7ca9fdc0";
+      fsType = "btrfs";
     };
 
-  boot.initrd.luks.devices."luks-a862c9d7-05c8-401c-9432-baadf2111060".device = "/dev/disk/by-uuid/a862c9d7-05c8-401c-9432-baadf2111060";
-
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/529E-7F88";
+    { device = "/dev/disk/by-uuid/E038-69B4";
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/f5994a19-1302-48aa-abcb-ab7b1a52c94f"; }
-    ];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -38,9 +35,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  # Move to separate default file?
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-  powerManagement.powertop.enable = true;
-
 }
