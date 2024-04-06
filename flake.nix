@@ -11,8 +11,10 @@
     outputs = inputs:
         inputs.snowfall-lib.mkFlake {
             inherit inputs;
-	    #modules = [ ./nixos/configuration.nix ];
             src = ./.;
-
+            
+	    systems.modules.nixos = with inputs; [
+	      home-manager.nixosModules.home-manager;
+            ];
         };
 }

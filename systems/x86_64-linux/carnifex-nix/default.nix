@@ -19,5 +19,6 @@
     ...
 }:
 {
+  imports = [ ./hardware-configuration.nix ./configuration.nix ];
     # Your configuration.
 }

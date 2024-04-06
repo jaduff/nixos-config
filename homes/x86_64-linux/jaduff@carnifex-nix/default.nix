@@ -20,4 +20,44 @@
 }:
 {
     # Your configuration.
+    programs ={
+      fix.enable = true;
+      };
+  programs.tmux = {
+    enable=true;
+    extraConfig = ''
+      set -g default-shell /home/jaduff/.nix-profile/bin/fish
+    '';
+  };
+  home.packages = with pkgs; [
+    vim
+    firefox
+    lm_sensors
+    cifs-utils
+    iotop
+    inetutils
+    postgresql
+    remmina
+    oh-my-fish
+    fish
+    borgbackup
+    vorta
+    virt-manager
+    htop-vim
+    libreoffice
+    protonvpn-gui
+    telegram-desktop
+    nextcloud-client
+    #zotero # Disabled until insecurity resolved
+    skypeforlinux
+    kdeconnect
+    kate
+    mediainfo
+    kcalc
+  ];
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  home.stateVersion = "23.11";
 }
