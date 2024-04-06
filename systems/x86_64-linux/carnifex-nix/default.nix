@@ -20,17 +20,21 @@
 }:
 {
   imports = [ ./hardware-configuration.nix ./configuration.nix ];
-	sound.enable = true;
-	  hardware.pulseaudio.enable = false;
-	  security.rtkit.enable = true;
-	  services.pipewire = {
-	    enable = true;
-	    alsa.enable = true;
-	    alsa.support32Bit = true;
-	    pulse.enable = true;
-	    # If you want to use JACK applications, uncomment this
-	    #jack.enable = true;
-	    };
-
+  sound.enable = true;
+    hardware.pulseaudio.enable = false;
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+      };
+  console = {
+    earlySetup = true;
+    packages = with pkgs; [ terminus_font ];
+    font = "${pkgs.terminus_fonts}/share/consolefonts/ter-u28n.psf.gz";
+  };
     # Your configuration.
 }
