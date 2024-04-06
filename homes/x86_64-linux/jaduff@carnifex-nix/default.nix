@@ -21,7 +21,7 @@
 {
     # Your configuration.
     programs ={
-      fix.enable = true;
+      fish.enable = true;
       };
   programs.tmux = {
     enable=true;
@@ -29,7 +29,9 @@
       set -g default-shell /home/jaduff/.nix-profile/bin/fish
     '';
   };
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    skypeforlinux
     vim
     firefox
     lm_sensors
@@ -49,7 +51,6 @@
     telegram-desktop
     nextcloud-client
     #zotero # Disabled until insecurity resolved
-    skypeforlinux
     kdeconnect
     kate
     mediainfo
