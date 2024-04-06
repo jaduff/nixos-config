@@ -1,7 +1,7 @@
 {
     inputs = {
-        unstable.url = "github:nixos/nixpkgs/nixos-23.11";
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+        unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
         snowfall-lib = {
             url = "github:snowfallorg/lib";
