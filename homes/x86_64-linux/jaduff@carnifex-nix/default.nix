@@ -31,7 +31,7 @@
   };
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    skypeforlinux
+    #skypeforlinux
     vim
     firefox
     lm_sensors

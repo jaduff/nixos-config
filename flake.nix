@@ -1,6 +1,7 @@
 {
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+        unstable.url = "github:nixos/nixpkgs/nixos-23.11";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
         snowfall-lib = {
             url = "github:snowfallorg/lib";
@@ -12,12 +13,12 @@
 
     outputs = inputs:
         inputs.snowfall-lib.mkFlake {
-	allowUnfree = true;
+	    #allowUnfree = true;
             inherit inputs;
             src = ./.;
-	    channels-config = {
-              allowUnfree = true;            
-	    };
+	   # channels-config = {
+           #   allowUnfree = true;            
+	   # };
 	    systems.modules.nixos = with inputs; [
 	      home-manager.nixosModules.home-manager
             ];
