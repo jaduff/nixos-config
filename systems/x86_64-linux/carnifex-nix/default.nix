@@ -19,6 +19,14 @@
     ...
 }:
 {
+  boot.initrd.systemd.enable = true;
+  boot.plymouth.enable = true;
+  boot.plymouth.theme = "breeze";
+  environment.systemPackages = with pkgs; [
+    plymouth
+    breeze-plymouth
+  ];
+  boot.kernelParams = ["quiet"];
   imports = [ ./hardware-configuration.nix ./configuration.nix ];
   sound.enable = true;
     hardware.pulseaudio.enable = false;
