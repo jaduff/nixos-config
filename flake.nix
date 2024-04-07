@@ -17,12 +17,11 @@
 	    #allowUnfree = true;
             inherit inputs;
             src = ./.;
-	   # channels-config = {
-           #   allowUnfree = true;            
-	   # };
+	    channels-config = {
+              allowUnfree = true;            
+	    };
 	    systems.modules.nixos = with inputs; [
 	      home-manager.nixosModules.home-manager
-	      nixos-wsl.nixosModules.wsl
             ];
         };
 }
