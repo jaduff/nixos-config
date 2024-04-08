@@ -25,9 +25,17 @@
   environment.systemPackages = with pkgs; [
     plymouth
     breeze-plymouth
+    syncthingtray
   ];
   boot.kernelParams = ["quiet"];
   imports = [ ./hardware-configuration.nix ./configuration.nix ];
+  networking.firewall = {
+    enable = true;
+    allowedTCPPortRanges = [{from = 1714; to = 1764;} ];
+    allowedUDPPortRanges = [{from = 1714; to = 1764;} ];
+    allowedTCPPorts = [42591 443];
+  };
+  services.syncthing.enable = true;
   sound.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
