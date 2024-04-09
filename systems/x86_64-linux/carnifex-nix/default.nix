@@ -27,6 +27,7 @@
     breeze-plymouth
     syncthingtray
   ];
+  services.flatpak.enable = true;
   boot.kernelParams = ["quiet"];
   imports = [ ./hardware-configuration.nix ./configuration.nix ];
   networking.firewall = {
