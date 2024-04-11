@@ -46,7 +46,8 @@
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.gutenprint pkgs.fflinuxprint pkgs.fxlinuxprint pkgs.cups-kyocera];
 
   # Enable sound.
   # sound.enable = true;
