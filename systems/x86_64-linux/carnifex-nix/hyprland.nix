@@ -15,7 +15,7 @@
   services.xserver.displayManager.sddm.wayland.enable = true;
   services.xserver.enable = true;
 
-  packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     kitty
   ];
 }
