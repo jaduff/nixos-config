@@ -19,6 +19,11 @@
     ...
 }:
 {
+
+  imports =
+    [ # include the results of the hardware scan.
+      ./hyprland.nix
+    ];
     # Your configuration.
     programs ={
       fish.enable = true;
