@@ -32,6 +32,8 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     #skypeforlinux
+    microsoft-edge
+    masterpdfeditor
     vim
     firefox
     lm_sensors
