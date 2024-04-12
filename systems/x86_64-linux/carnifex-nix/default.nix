@@ -29,7 +29,7 @@
   ];
   services.flatpak.enable = true;
   boot.kernelParams = ["quiet"];
-  imports = [ ./hardware-configuration.nix ./configuration.nix ./plasma.nix ];
+  imports = [ ./hardware-configuration.nix ./configuration.nix ./hyprland.nix ];
   networking.firewall = {
     enable = true;
     allowedTCPPortRanges = [{from = 1714; to = 1764;} ];

@@ -57,6 +57,7 @@
     kate
     mediainfo
     kcalc
+    kitty
   ];
   # Enable home-manager and git
   programs.home-manager.enable = true;
