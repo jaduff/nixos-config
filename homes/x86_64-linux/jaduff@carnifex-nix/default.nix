@@ -22,7 +22,7 @@
 
   imports =
     [ # include the results of the hardware scan.
-      ./hyprland.nix
+      #./hyprland.nix
     ];
     # Your configuration.
     programs ={

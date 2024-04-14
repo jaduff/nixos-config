@@ -1,10 +1,21 @@
-
-
-
-
 {
+  pkgs, config, ...
+}: {
+#  programs.password-store = {
+#    enable = true;
+#    settings = {
+#      PASSWORD_STORE_DIR = "$HOME/.password-store";
+#    };
+#    package = pkgs.pass.withExtensions (p: [p.pass-otp]);
+#  };
+#
+#  services.pass-secret-service = {
+#    enable = true;
+#    storePath = "${config.home.homeDirectory}/.password-store";
+#    extraArgs = ["-e${config.programs.password-store.package}/bin/pass"];
+#  };
   wayland.windowManager.hyprland.enable = true;
- wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     input.touchpad.natural_scroll = true;
     bind =
@@ -16,6 +27,8 @@
         "bind = SUPER, right, movefocus, r"
         "bind = SUPER, up, movefocus, u"
         "bind = SUPER, down, movefocus, d"
+      # Full Screen
+        "bind = SUPER SHIFT, F, fullscreen"
       ]
       ++ (
         # workspaces

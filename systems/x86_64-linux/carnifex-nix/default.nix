@@ -19,6 +19,10 @@
     ...
 }:
 {
+nix.settings.trusted-substituters = ["https://ai.cachix.org"];
+nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
+
+
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
   boot.plymouth.theme = "breeze";
@@ -29,7 +33,7 @@
   ];
   services.flatpak.enable = true;
   boot.kernelParams = ["quiet"];
-  imports = [ ./hardware-configuration.nix ./configuration.nix ./hyprland.nix ];
+  imports = [ ./hardware-configuration.nix ./configuration.nix ./plasma.nix ];
   networking.firewall = {
     enable = true;
     allowedTCPPortRanges = [{from = 1714; to = 1764;} ];
