@@ -24,7 +24,7 @@ nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU
 
 
   boot.initrd.systemd.enable = true;
-  boot.supportFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = [ "ntfs" ];
   boot.plymouth.enable = true;
   boot.plymouth.theme = "breeze";
   environment.systemPackages = with pkgs; [
