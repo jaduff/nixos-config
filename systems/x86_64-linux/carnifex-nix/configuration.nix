@@ -48,7 +48,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.jaduff= {
      isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "video" "render" ]; # Enable ‘sudo’ for the user.
      initialPassword = "password";
      packages = with pkgs; [
        vim

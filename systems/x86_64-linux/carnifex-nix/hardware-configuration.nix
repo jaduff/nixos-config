@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ "dm-snapshot" "dm-cache" "dm-cache-smq" "dm-cache-mq" "dm-cache-cleaner" ];
-  boot.kernelModules = [ "kvm-intel" "dm-cache" "dm-cache-smq" "dm-persistent-data" "dm-bio-prison" "dm-clone" "dm-crypt" "dm-writecache" "dm-mirror" "dm-snapshot" ];
+  boot.kernelModules = [ "kvm-intel" "dm-cache" "dm-cache-smq" "dm-persistent-data" "dm-bio-prison" "dm-clone" "dm-crypt" "dm-writecache" "dm-mirror" "dm-snapshot" "i915"];
   boot.extraModulePackages = [ ];
   boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/9fe06630-041e-4cf2-8676-a8e16d6d50de";
 

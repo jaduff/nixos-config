@@ -53,6 +53,7 @@
     vorta
     virt-manager
     htop-vim
+    btop
     libreoffice
     protonvpn-gui
     telegram-desktop

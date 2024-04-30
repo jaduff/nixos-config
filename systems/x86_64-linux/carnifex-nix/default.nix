@@ -31,6 +31,7 @@ nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU
     plymouth
     breeze-plymouth
     syncthingtray
+    intel-gpu-tools
   ];
   services.flatpak.enable = true;
   boot.kernelParams = ["quiet"];
@@ -39,7 +40,7 @@ nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU
     enable = true;
     allowedTCPPortRanges = [{from = 1714; to = 1764;} ];
     allowedUDPPortRanges = [{from = 1714; to = 1764;} ];
-    allowedTCPPorts = [42591 443];
+    allowedTCPPorts = [42591 443 5000];
   };
   services.syncthing.enable = true;
   sound.enable = true;
@@ -58,5 +59,10 @@ nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU
     packages = with pkgs; [ terminus_font ];
     font = "ter-v28n";
   };
+virtualisation.docker.rootless = {
+  enable = true;
+  setSocketVariable = true;
+};
+users.users.jaduff.extraGroups = [ "docker" "video" "render" ];
     # Your configuration.
 }
