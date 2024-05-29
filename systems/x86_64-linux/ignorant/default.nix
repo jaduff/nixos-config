@@ -63,8 +63,7 @@ services.logind.extraConfig = ''
       };
   console = {
     earlySetup = true;
-    packages = with pkgs; [ terminus_font ];
-    font = "ter-v28n";
+    packages = with pkgs; [  ];
   };
 virtualisation.docker.rootless = {
   enable = true;
