@@ -49,9 +49,6 @@ services.logind.extraConfig = ''
     allowedUDPPortRanges = [{from = 1714; to = 1764;} ];
     allowedTCPPorts = [42591 443 5000 8000 11434];
   };
-  networking.networkmanager.enableStrongSwan = true;
-  services.xl2tpd.enable = true;
-  services.strongswan.enable=true;
   services.syncthing.enable = true;
   sound.enable = true;
     hardware.pulseaudio.enable = false;

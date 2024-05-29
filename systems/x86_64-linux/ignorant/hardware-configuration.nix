@@ -10,13 +10,17 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" "dm-crypt" ];
+  boot.kernelModules = [ "kvm-amd" "dm-crypt" "mt7921e" ];
   boot.extraModulePackages = [ ];
   boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/9bb9e265-7ce9-415f-a66e-314d6f185d74";
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/598a86b5-77cd-49a2-9a19-0d0b8738fd15";
       fsType = "btrfs";
+    };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/2C58-24C5" ;
+      fsType = "vfat";
     };
 
   swapDevices = [ ];
