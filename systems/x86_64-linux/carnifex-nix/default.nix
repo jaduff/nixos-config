@@ -36,6 +36,7 @@ services.ntp.enable = true;
     dive
     podman-tui
     podman-compose
+    vpnc
   ];
 services.logind.extraConfig = ''
     RuntimeDirectorySize=8G
