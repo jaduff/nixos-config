@@ -13,6 +13,8 @@
   boot.kernelModules = [ "kvm-intel" "dm-cache" "dm-cache-smq" "dm-persistent-data" "dm-bio-prison" "dm-clone" "dm-crypt" "dm-writecache" "dm-mirror" "dm-snapshot" "i915"];
   boot.extraModulePackages = [ ];
   boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/9fe06630-041e-4cf2-8676-a8e16d6d50de";
+  
+  services.fstrim.enable = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/b9d2a1fc-3e70-4f1e-b57b-d5dc7ca9fdc0";
