@@ -52,7 +52,6 @@ hardware.printers = {
     }
   ];
 };
-steam = enabled;
 services.guix.enable = true;
 services.logind.extraConfig = ''
     RuntimeDirectorySize=8G
