@@ -37,6 +37,21 @@ services.ntp.enable = true;
     podman-tui
     podman-compose
   ];
+services.printing.drivers = [ pkgs.hplip ];
+hardware.printers = {
+  ensurePrinters = [
+    {
+      name = "Duffprint";
+      location = "Home";
+      deviceUri = "socket://duffprint.fritz.box";
+      model = "HP_LaserJet_1022.ppd.gz";
+      ppdOptions = {
+        PageSize = "A4";
+      };
+    }
+  ];
+};
+services.guix.enable = true;
 services.logind.extraConfig = ''
     RuntimeDirectorySize=8G
   '';
