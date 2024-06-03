@@ -37,6 +37,7 @@ services.ntp.enable = true;
     podman-tui
     podman-compose
   ];
+virtualisation.libvirtd.enable = true;
 services.printing.drivers = [ pkgs.hplip ];
 hardware.printers = {
   ensurePrinters = [
@@ -51,6 +52,7 @@ hardware.printers = {
     }
   ];
 };
+steam = enabled;
 services.guix.enable = true;
 services.logind.extraConfig = ''
     RuntimeDirectorySize=8G
